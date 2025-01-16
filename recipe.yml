@@ -57,7 +57,6 @@ stages:
     - ln -s /usr/lib/systemd/system/nvidia-hibernate.service /etc/systemd/system/systemd-hibernate.service.wants/nvidia-hibernate.service
     - ln -s /usr/lib/systemd/system/nvidia-resume.service /etc/systemd/system/systemd-hibernate.service.wants/nvidia-resume.service
 
-
   - name: get-curl
     type: shell
     commands:
@@ -69,31 +68,6 @@ stages:
           packages:
           - ca-certificates
           - curl
-
-- name: docker-repo
-    type: shell
-    commands:
-    - apt-get update
-    - install -m 0755 -d /etc/apt/keyrings
-    - curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-    - chmod a+r /etc/apt/keyrings/docker.asc
-    - echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian sid stable" | sudo tee /etc/apt/sources.list.d/docker.list
-    - apt-get update
-
-  - name: docker-dependances
-    type: shell
-    commands:
-    - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    modules:
-      - name: install-docker
-        type: apt
-        source:
-          packages:
-          - docker-ce 
-          - docker-ce-cli 
-          - containerd.io 
-          - docker-buildx-plugin 
-          - docker-compose-plugin
           
   - name: extra-utilities
     type: apt
