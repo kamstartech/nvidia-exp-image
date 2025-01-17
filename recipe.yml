@@ -69,6 +69,11 @@ stages:
           - ca-certificates
           - curl
           
+   - name: nvidia-official-repo
+    type: shell
+    commands:
+    - curl -fSsL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+          
   - name: extra-utilities
     type: apt
     source:
