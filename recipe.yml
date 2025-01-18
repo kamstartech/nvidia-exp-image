@@ -101,7 +101,6 @@ stages:
             type: shell
             commands:
               - docker --version
-              - rm /tmp/docker-desktop-amd64.deb
 
       - name: extra-utilities
         type: apt
