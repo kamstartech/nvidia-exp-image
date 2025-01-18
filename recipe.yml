@@ -73,7 +73,7 @@ stages:
         type: shell
         commands:
           - curl -fSsL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-          - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian sid stable" > /etc/apt/sources.list.d/docker.list
+          - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable" > /etc/apt/sources.list.d/docker.list
           - apt-get update 
 
       - name: extra-utilities
