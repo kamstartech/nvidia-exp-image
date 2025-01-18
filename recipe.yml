@@ -96,12 +96,7 @@ stages:
         commands:
           - wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb -O /tmp/docker-desktop-amd64.deb
           - apt-get install /tmp/docker-desktop-amd64.deb
-        modules:
-          - name: install-docker-desktop
-            type: shell
-            commands:
-              - docker --version
-
+        
       - name: extra-utilities
         type: apt
         source:
