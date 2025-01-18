@@ -79,7 +79,7 @@ stages:
       - name: docker-dependancies
         type: shell
         commands:
-          - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin pass qemu-system-x86
         modules:
           - name: install-docker-dependancies
             type: apt
@@ -90,17 +90,8 @@ stages:
                 - containerd.io 
                 - docker-buildx-plugin 
                 - docker-compose-plugin
-                
-      - name: docker-desktop
-        type: shell
-        commands:
-          - apt-get update
-          - apt-get install -y pass qemu-system-x86
-          - wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb -O /tmp/docker-desktop-amd64.deb
-          - mount -o remount,rw /
-          - dpkg -i /tmp/docker-desktop-amd64.deb
-          - mount -o remount,ro /
-          - rm /tmp/docker-desktop-amd64.deb
+                - pass 
+                - qemu-system-x86
                     
       - name: extra-utilities
         type: apt
