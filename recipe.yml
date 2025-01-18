@@ -94,7 +94,7 @@ stages:
       - name: docker-desktop
         type: shell
         commands:
-          - wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb -O /tmp/docker-desktop-amd64.deb
+          - wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb -O /tmp/docker-desktop-amd64.deb && dpkg -i /tmp/docker-desktop-amd64.deb
         
       - name: extra-utilities
         type: apt
