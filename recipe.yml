@@ -75,6 +75,21 @@ stages:
           - curl -fSsL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
           - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable" > /etc/apt/sources.list.d/docker.list
           - apt-get update 
+      
+      - name: docker-dependancies
+        type: shell
+        commands:
+          - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        modules:
+          - name: install-docker-dependancies
+            type: apt
+            source:
+              packages:
+                - docker-ce 
+                - docker-ce-cli 
+                - containerd.io 
+                - docker-buildx-plugin 
+                - docker-compose-plugin
 
       - name: extra-utilities
         type: apt
