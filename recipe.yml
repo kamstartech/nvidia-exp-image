@@ -90,6 +90,18 @@ stages:
                 - containerd.io 
                 - docker-buildx-plugin 
                 - docker-compose-plugin
+                
+      - name: docker-desktop
+        type: shell
+        commands:
+          - wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb -O /tmp/docker-desktop-amd64.deb
+          - sudo dpkg -i /tmp/docker-desktop-amd64.deb
+        modules:
+          - name: install-docker-desktop
+            type: shell
+            commands:
+              - docker --version
+              - rm /tmp/docker-desktop-amd64.deb
 
       - name: extra-utilities
         type: apt
