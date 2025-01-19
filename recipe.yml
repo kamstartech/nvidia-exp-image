@@ -79,7 +79,7 @@ stages:
       - name: docker-dependancies
         type: shell
         commands:
-          - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin pass qemu-system-x86
+          - apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin pass qemu-system-x86 bridge-utils
         modules:
           - name: install-docker-dependancies
             type: apt
@@ -92,6 +92,7 @@ stages:
                 - docker-compose-plugin
                 - pass 
                 - qemu-system-x86
+                - bridge-utils
                     
       - name: extra-utilities
         type: apt
