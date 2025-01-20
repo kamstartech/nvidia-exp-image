@@ -69,7 +69,7 @@ stages:
                 - ca-certificates
                 - curl
 
-      - name: vagrant
+      - name: vagrant-repo
         type: shell
         commands:
           - wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg          
@@ -92,6 +92,13 @@ stages:
         source:
           packages:
             - switcheroo-control
+
+      - name: virtual-box-repo
+        type: shell
+        commands:
+            - wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+            - echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian bookworm contrib" | tee /etc/apt/sources.list.d/virtualbox.list
+            - apt-get update
 
       - name: vanilla-tools
         type: shell
