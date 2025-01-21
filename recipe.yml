@@ -60,7 +60,7 @@ stages:
       - name: get-curl
         type: shell
         commands:
-          - apt-mark hold curl ca-certificates cpu-checker qemu-kvm libvirt-daemon-system
+          - apt-mark hold curl ca-certificates cpu-checker
         modules:
           - name: install-curl-ca-certificate
             type: apt
@@ -69,8 +69,6 @@ stages:
                 - ca-certificates
                 - curl
                 - cpu-checker
-                - qemu-kvm 
-                - libvirt-daemon-system
 
       - name: vagrant-repo
         type: shell
