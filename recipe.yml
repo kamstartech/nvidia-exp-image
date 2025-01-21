@@ -60,7 +60,7 @@ stages:
       - name: get-curl
         type: shell
         commands:
-          - apt-mark hold curl ca-certificates
+          - apt-mark hold curl ca-certificates cpu-checker
         modules:
           - name: install-curl-ca-certificate
             type: apt
@@ -68,6 +68,7 @@ stages:
               packages:
                 - ca-certificates
                 - curl
+                - cpu-checker
 
       - name: vagrant-repo
         type: shell
