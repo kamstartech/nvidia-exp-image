@@ -71,6 +71,7 @@ stages:
                 - ca-certificates
                 - curl
                 - cpu-checker
+                - mdadm
                 - vagrant
                 - vagrant-libvirt
                 - vagrant-hostmanager
