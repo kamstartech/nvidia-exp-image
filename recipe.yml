@@ -71,6 +71,7 @@ stages:
                 - ca-certificates
                 - curl
                 - cpu-checker
+                - vagrant
                     
       - name: extra-utilities
         type: apt
