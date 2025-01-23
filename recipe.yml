@@ -72,6 +72,8 @@ stages:
                 - curl
                 - cpu-checker
                 - vagrant
+                - vagrant-libvirt
+                - vagrant-hostmanager
                     
       - name: extra-utilities
         type: apt
