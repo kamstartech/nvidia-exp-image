@@ -71,9 +71,8 @@ stages:
                 - ca-certificates
                 - curl
                 - cpu-checker
-                - mdadm
+                - virt-manager
                 - vagrant
-                - vagrant-libvirt
                 - vagrant-hostmanager
                     
       - name: extra-utilities
