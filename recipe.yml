@@ -18,6 +18,8 @@ stages:
         commands:
           - lpkg --unlock
           - apt-get update
+          - apt-get upgrade -y
+          - apt-get autoremove -y
 
       - name: nvidia-official-repo
         type: shell
