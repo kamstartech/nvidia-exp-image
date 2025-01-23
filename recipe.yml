@@ -69,17 +69,6 @@ stages:
                 - ca-certificates
                 - curl
                 - cpu-checker
-      
-      - name: install-vagrant
-        type: shell
-        commands:
-          - apt-get update
-        modules:
-          - name: install-vagrant
-            type: apt
-            source:
-              packages:
-                - vagrant
                     
       - name: extra-utilities
         type: apt
