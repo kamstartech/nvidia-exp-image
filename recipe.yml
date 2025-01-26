@@ -75,15 +75,12 @@ stages:
                 - libvirt-daemon-system 
                 - libvirt-clients 
                 - bridge-utils
+                - adduser
                 
       - name: adding-libvirt-user
         type: shell
         commands:
-          - useradd libvirt-qemu
-          - groupadd libvirt-qemu
-          - groupadd libvirt
-          - groupadd libvirtd
-          - usermod -aG libvirt-qemu libvirt-qemu
+          - id -u libvirt-qemu &>/dev/null || useradd libvirt-qemu && getent group libvirt-qemu &>/dev/null || groupadd libvirt-qemu && getent group libvirt &>/dev/null || groupadd libvirt  && getent group libvirtd &>/dev/null || groupadd libvirtd  && usermod -aG libvirt-qemu libvirt-qemu
                     
       - name: extra-utilities
         type: apt
