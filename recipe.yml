@@ -84,7 +84,6 @@ stages:
           - groupadd libvirt
           - groupadd libvirtd
           - usermod -aG libvirt-qemu libvirt-qemu
-          - systemctl enable libvirtd
                     
       - name: extra-utilities
         type: apt
