@@ -72,6 +72,19 @@ stages:
                 - curl
                 - cpu-checker
                 - virt-manager
+                - libvirt-daemon-system 
+                - libvirt-clients 
+                - bridge-utils
+                
+      - name: adding-libvirt-user
+        type: shell
+        commands:
+          - useradd libvirt-qemu
+          - groupadd libvirt-qemu
+          - groupadd libvirt
+          - groupadd libvirtd
+          - usermod -aG libvirt-qemu libvirt-qemu
+          - systemctl enable libvirtd
                     
       - name: extra-utilities
         type: apt
