@@ -124,6 +124,8 @@ stages:
       - name: cleanup
         type: shell
         commands:
+          - apt update
+          - apt upgrade -y
           - apt autoremove -y
           - apt clean
           - apt remove -y zutty gnome-shell-extension-prefs
