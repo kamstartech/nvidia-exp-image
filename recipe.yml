@@ -20,6 +20,7 @@ stages:
           - apt-get update
           - apt-get upgrade -y
           - apt-get autoremove -y
+          - apt-get install usrmerge
 
       - name: nvidia-official-repo
         type: shell
