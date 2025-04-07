@@ -20,7 +20,7 @@ stages:
           - apt-get update
           - apt-get upgrade -y
           - apt-get autoremove -y
-          - apt-get install -y usrmerge
+          - apt-get install -y usrmerge libfuse2t64
 
       - name: nvidia-official-repo
         type: shell
